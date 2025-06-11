@@ -1,71 +1,50 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import "./App.css"; 
+import Login from "./login.js";
+import Logout from "./logout.js";
+import Chatbot from "./chatbot.js";
 
+function App() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-function Chatbot() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
-
-  const handleSend = async () => {
-    if (input.trim() !== "") {
+  // ✅ Properly check authentication on app startup
+  useEffect(() => {
+    const checkAuth = () => {
+      const savedUser = localStorage.getItem("user");
+      console.log("Checking auth - savedUser:", savedUser); // ✅ Debug log
       
-      setMessages([...messages, { user: "You", text: input }]);
-
-      try {
-        const response = await fetch("http://127.0.0.1:5000/predict", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input }),
-        });
-
-        const data = await response.json();
-
-        
-        if (data.products && data.products.length > 0) {
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { user: "Bot", text: "Here are some matching products:" },
-            ...data.products.map((product) => ({
-              user: "Bot",
-              text: `${product.name} - ₹${product.price} (${product.category})`,
-            })),
-          ]);
-        } else {
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { user: "Bot", text: data.answer || "Sorry, no matching products found." },
-          ]);
-        }
-
-      } catch (error) {
-        console.error("Error fetching response:", error);
-        setMessages((prevMessages) => [...prevMessages, { user: "Bot", text: "Oops! Something went wrong." }]);
+      if (savedUser && savedUser !== "null" && savedUser !== "") {
+        setUser(savedUser);
+      } else {
+        setUser(null);
       }
+      setLoading(false);
+    };
 
-      setInput(""); 
-    }
-  };
+    checkAuth();
+  }, []);
+
+  // ✅ Show loading while checking auth
+  if (loading) {
+    return <div style={{ textAlign: "center", padding: "20px" }}>Loading...</div>;
+  }
+
+  console.log("Current user state:", user); // ✅ Debug log
 
   return (
-    <div style={{ padding: "20px", maxWidth: "400px", margin: "auto" }}>
-      <h2>Chatbot Interface</h2>
-      <div className="chat-container">
-  {messages.map((msg, index) => (
-    <p key={index} className={msg.user === "You" ? "user-message" : "bot-message"}>
-      <strong>{msg.user}: </strong>{msg.text}
-    </p>
-  ))}
-      </div>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Ask something..."
-        style={{ width: "100%", padding: "10px", marginTop: "10px" }}
-      />
-      <button onClick={handleSend} style={{ padding: "10px", marginTop: "10px" }}>Send</button>
+    <div>
+      {user ? (
+        <>
+          <h2>Welcome {user}!</h2>
+          <Chatbot />
+          <Logout setUser={setUser} />
+        </>
+      ) : (
+        <Login setUser={setUser} />
+      )}
     </div>
   );
 }
 
-export default Chatbot;
+export default App;
