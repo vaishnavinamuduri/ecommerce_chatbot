@@ -1,56 +1,64 @@
-# 🛍️ E-Commerce Chatbot  
+E-Commerce Chatbot
+🔹 Project Overview
+This chatbot enhances the e-commerce shopping experience by enabling users to search for products, get smart recommendations, and interact through a conversational UI. Built with Flask (backend) and React (frontend), it integrates basic NLP techniques to refine product queries.
 
-## Overview  
-This project is an **AI-powered chatbot** built for an e-commerce platform. It helps users search for products based on keywords and provides recommendations from a database. The chatbot connects a **Flask backend** with a **React.js frontend**, ensuring dynamic interactions.  
+🔹 Features
+✔ Intelligent Product Search – Uses NLP to find relevant products based on user queries. 
+✔ User Authentication & Session Management – Users can register, log in, and maintain session continuity. 
+✔ Chat History Persistence – Saves user-specific interactions for personalized responses. 
+✔ Dynamic Product Suggestions – Suggests alternative matches if the exact product isn’t found. 
+✔ Mock Inventory System – Database-backed model to store and retrieve product details.
 
-## Tech Stack  
-- **Backend:** Flask, SQLAlchemy, SQLite  
-- **Frontend:** React.js  
-- **API Communication:** Flask-CORS  
+🔹 Installation Guide
 
-## 🚀 Features  
-✅ **Smart Product Search** – Matches queries with items dynamically  
-✅ **Seamless Backend-Frontend Integration** – React UI fetches responses via Flask API  
-✅ **Styled Chat Interface** – Clean, user-friendly message bubbles  
-✅ **Error Handling** – Prevents crashes due to empty or invalid inputs  
-✅ **Expandable Design** – Ready for future upgrades like price filtering  
-
-## 🔗 API Endpoints  
-| Endpoint | Method | Description |  
-|----------|--------|-------------|  
-| `/predict` | `POST` | Returns products based on user queries |  
-| `/products` | `GET` | Fetches product details from the database |  
-| `/debug_db` | `GET` | Provides database health and stored products |  
-
-## 🛠️ Installation & Setup  
-### **1️⃣ Clone the Repository**  
-```bash
-git clone https://github.com/your-repo/chatbot
-cd chatbot
-
-2️⃣ Backend Setup
-
-pip install -r requirements.txt
-python app.py
-
-3️⃣ Frontend Setup
-cd frontend
-npm install
-npm start
-
-4️⃣ Access the Chatbot
-Visit: http://localhost:3000
-🚀 Future Enhancements
-✅ Dark Mode – Toggle between themes ✅ Better NLP Understanding – Improve search flexibility ✅ Category & Price Filters – Users can refine searches
+Backend (Flask) :
+     1️⃣ Clone the repository  -->  git clone <your-repo-link>
+                                    cd ecommerce_chatbot
+     2️⃣ Install dependencies  -->  pip install -r requirements.txt
+     3️⃣ Set up the database   -->  python
+                                   >>> from app import db
+                                   >>> db.create_all()
+                                   >>> exit()
+     4️⃣ Start the backend    
+        server                -->  flask run
+        
+Frontend (React):
+     1️⃣ Navigate to the frontend directory  -->  cd botui
+     2️⃣ Install frontend dependencies       -->  npm install
+     3️⃣ Run the React application           -->  npm start
 
 
-Challenges & Solutions
-Query Matching Issues → Fixed by improving search logic in Flask
+🔹 API Endpoints 
 
-CORS Errors → Resolved via Flask-CORS integration
+User Authentication:
+Endpoint	          Method	          Description
+/register	          POST	          Registers a new user
+/login	             POST	          Authenticates the user
+/check_login       	GET	           Verifies if user session is active
+/logout	            POST	          Logs out the current user
 
-UI Styling Improvements → Enhanced message display & layout
+Product Search & Recommendations:
+Endpoint	          Method	          Description
+/products	          GET	            Fetches products with filters
+/predict	           POST	           Handles NLP-based search queries
+/suggest	           POST	           Returns alternative product recommendations
 
-Conclusion
-This chatbot efficiently connects users with relevant e-commerce products, streamlining their shopping experience through AI-powered interactions.
- Developed by: Vaishnavi Namuduri
+Chat History
+Endpoint	          Method	          Description
+/get_chat	         GET	             Retrieves saved chat history for a user
+
+🔹 Technologies Used
+
+Backend: Flask, Flask-Login, SQLAlchemy, Spacy NLP
+Frontend: React, JavaScript, CSS
+Database: SQLite
+API: RESTful architecture with JSON responses
+
+🔹 Future Enhancements
+
+📌 Improve Search Accuracy – Implement fuzzy matching techniques for better product queries. 
+📌 Enhance UI Experience – Add interactive filtering options, such as price range sliders. 
+📌 Expand NLP Capabilities – Refine user intent detection for smarter responses. 
+📌 Include Product Images – Display product visuals alongside search results.
+     
+                          
