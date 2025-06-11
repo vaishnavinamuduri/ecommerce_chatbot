@@ -32,21 +32,21 @@ This chatbot enhances the e-commerce shopping experience by enabling users to se
 **4. API Endpoints**
 
 **> User Authentication:**
-     Endpoint	    |      Method	    |      Description
-     /register	    |       POST	    |      Registers a new user
-     /login	    |       POST	    |      Authenticates the user
-     /check_login       |	  GET	    |       Verifies if user session is active
-     /logout	    |       POST	    |      Logs out the current user
+    --> Endpoint	    |      Method	    |      Description
+    --> /register	    |       POST	    |      Registers a new user
+    --> /login	    |       POST	    |      Authenticates the user
+    --> /check_login       |	  GET	    |       Verifies if user session is active
+    --> /logout	    |       POST	    |      Logs out the current user
 
 **>Product Search & Recommendations:**
-     Endpoint	 |         Method	  |        Description
-     /products	 |         GET	  |          Fetches products with filters
-     /predict	 |         POST	  |         Handles NLP-based search queries
-     /suggest	 |         POST	  |         Returns alternative product recommendations
+    --> Endpoint	 |         Method	  |        Description
+    --> /products	 |         GET	  |          Fetches products with filters
+    --> /predict	 |         POST	  |         Handles NLP-based search queries
+    --> /suggest	 |         POST	  |         Returns alternative product recommendations
 
 **> Chat History**
-     Endpoint	 |         Method	  |        Description
-     /get_chat	 |        GET	  |           Retrieves saved chat history for a user
+    --> Endpoint	 |         Method	  |        Description
+    --> /get_chat	 |        GET	  |           Retrieves saved chat history for a user
 
 **5. Technologies Used**
 
