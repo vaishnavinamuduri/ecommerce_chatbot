@@ -14,7 +14,7 @@ This chatbot enhances the e-commerce shopping experience by enabling users to se
 
 **> Backend (Flask) :**
      1) Clone the repository  -->  git clone <your-repo-link>
-                                    cd ecommerce_chatbot
+                                   cd ecommerce_chatbot
      2) Install dependencies  -->  pip install -r requirements.txt
      3) Set up the database   -->  python
                                    >>> from app import db
@@ -32,34 +32,34 @@ This chatbot enhances the e-commerce shopping experience by enabling users to se
 **4. API Endpoints**
 
 **> User Authentication:**
-     Endpoint	          Method	          Description
-     /register	          POST	          Registers a new user
-     /login	             POST	          Authenticates the user
-     /check_login       	GET	           Verifies if user session is active
-     /logout	            POST	          Logs out the current user
+     Endpoint	    |      Method	    |      Description
+     /register	    |       POST	    |      Registers a new user
+     /login	    |       POST	    |      Authenticates the user
+     /check_login       |	  GET	    |       Verifies if user session is active
+     /logout	    |       POST	    |      Logs out the current user
 
 **>Product Search & Recommendations:**
-     Endpoint	          Method	          Description
-     /products	          GET	            Fetches products with filters
-     /predict	           POST	           Handles NLP-based search queries
-     /suggest	           POST	           Returns alternative product recommendations
+     Endpoint	 |         Method	  |        Description
+     /products	 |         GET	  |          Fetches products with filters
+     /predict	 |         POST	  |         Handles NLP-based search queries
+     /suggest	 |         POST	  |         Returns alternative product recommendations
 
 **> Chat History**
-     Endpoint	          Method	          Description
-     /get_chat	         GET	             Retrieves saved chat history for a user
+     Endpoint	 |         Method	  |        Description
+     /get_chat	 |        GET	  |           Retrieves saved chat history for a user
 
 **5. Technologies Used**
 
--->  Backend: Flask, Flask-Login, SQLAlchemy, Spacy NLP
--->  Frontend: React, JavaScript, CSS
--->  Database: SQLite
--->  API: RESTful architecture with JSON responses
+       -->  Backend: Flask, Flask-Login, SQLAlchemy, Spacy NLP
+       -->  Frontend: React, JavaScript, CSS
+       -->  Database: SQLite
+       -->  API: RESTful architecture with JSON responses
 
 **6. Future Enhancements**
 
-# Improve Search Accuracy – Implement fuzzy matching techniques for better product queries. 
-# Enhance UI Experience – Add interactive filtering options, such as price range sliders. 
-# Expand NLP Capabilities – Refine user intent detection for smarter responses. 
-# Include Product Images – Display product visuals alongside search results.
+ Improve Search Accuracy – Implement fuzzy matching techniques for better product queries. 
+ Enhance UI Experience – Add interactive filtering options, such as price range sliders. 
+ Expand NLP Capabilities – Refine user intent detection for smarter responses. 
+ Include Product Images – Display product visuals alongside search results.
      
                           
