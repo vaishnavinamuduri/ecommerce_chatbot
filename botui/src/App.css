@@ -66,3 +66,28 @@ body {
     max-width: 90%;
   }
 }
+
+/* ✅ Filters Section */
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* ✅ Dropdown & Input Styling */
+.filters select, .filters input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filters select {
+  background: #f8f8f8;
+}
+
+.filters input {
+  width: 120px;
+}

@@ -8,12 +8,9 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Properly check authentication on app startup
   useEffect(() => {
     const checkAuth = () => {
       const savedUser = localStorage.getItem("user");
-      console.log("Checking auth - savedUser:", savedUser); // ✅ Debug log
-      
       if (savedUser && savedUser !== "null" && savedUser !== "") {
         setUser(savedUser);
       } else {
@@ -25,19 +22,19 @@ function App() {
     checkAuth();
   }, []);
 
-  // ✅ Show loading while checking auth
   if (loading) {
     return <div style={{ textAlign: "center", padding: "20px" }}>Loading...</div>;
   }
-
-  console.log("Current user state:", user); // ✅ Debug log
 
   return (
     <div>
       {user ? (
         <>
           <h2>Welcome {user}!</h2>
+          
+          {/* ✅ Only the Chatbot component (which has its own filters) */}
           <Chatbot />
+
           <Logout setUser={setUser} />
         </>
       ) : (
