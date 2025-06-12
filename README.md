@@ -11,6 +11,7 @@ smart recommendations, and interact through a conversational UI. Built with **Fl
 continuity.
 - **Chat History Persistence** - Saves user-specific interactions for personalized responses.
 - **Dynamic Product Suggestions** - Suggests alternative matches if the exact product isn't found.
+- **Advanced Product Filtering** - Filter products by categories (Electronics, Fashion, Books, Groceries, Accessories, Sports),       price range, and availability status.
 - **Mock Inventory System** - Database-backed model to store and retrieve product details.
 ---
 ## 3. Installation Guide
@@ -60,7 +61,7 @@ E-Commerce Chatbot
 ### -> Product Search & Recommendations:
 | Endpoint | Method | Description |
 |--------------|--------|-------------------------------------------|
-| `/products` | GET | Fetches products with filters |
+| `/products` | GET | Fetches products with category, price, and availability filters | `category`, `price`, `availability` |
 | `/predict` | POST | Handles NLP-based search queries |
 | `/suggest` | POST | Returns alternative product recommendations |
 ### -> Chat History:
@@ -77,6 +78,6 @@ E-Commerce Chatbot
 ---
 ## 6. Future Enhancements
 - **Improve Search Accuracy** - Implement fuzzy matching techniques for better product queries.
-- **Enhance UI Experience** - Add interactive filtering options, such as price range sliders.
+- - **Enhance UI Experience** - Add interactive filtering options, such as price range sliders, multi-                                                             select category filters, and sorting capabilities.
 - **Expand NLP Capabilities** - Refine user intent detection for smarter responses.
 - **Include Product Images** - Display product visuals alongside search results. 
