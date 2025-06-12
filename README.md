@@ -78,6 +78,45 @@ E-Commerce Chatbot
 ---
 ## 6. Future Enhancements
 - **Improve Search Accuracy** - Implement fuzzy matching techniques for better product queries.
-- - **Enhance UI Experience** - Add interactive filtering options, such as price range sliders, multi-                                                             select category filters, and sorting capabilities.
+- - **Enhance UI Experience** - Add interactive filtering options, such as price range sliders, multi select category filters, and sorting capabilities.
 - **Expand NLP Capabilities** - Refine user intent detection for smarter responses.
-- **Include Product Images** - Display product visuals alongside search results. 
+- **Include Product Images** - Display product visuals alongside search results.
+---
+## 7. Project Insights
+
+### 7.1 Challenges Faced
+
+- **Integrating NLP with Flask**  
+  Building a custom NLP query matching system using spaCy required careful preprocessing of product data and user inputs to ensure relevant results.
+
+- **Session Management**  
+  Handling login persistence securely using `Flask-Login` took multiple iterations, especially when aligning it with React’s frontend session state.
+
+- **React-Flask Communication**  
+  Ensuring smooth data flow between the React frontend and Flask backend involved dealing with CORS issues and designing consistent JSON-based APIs.
+
+- **Handling Asynchronous Chat & Data Fetching**  
+  Managing chat history and live product suggestions in real-time while maintaining performance and state in React was tricky.
+
+---
+
+### 7.2 Reasoning Behind Tools & Frameworks
+
+- **Flask (Backend):**
+  - Lightweight and modular – perfect for quick API development.
+  - Built-in support for user sessions and routing.
+  - Seamless integration with SQLAlchemy and Flask-Login.
+
+- **React (Frontend):**
+  - Component-based structure made it easy to manage different parts of the UI (chat, login, product cards).
+  - Smooth rendering and routing for an interactive chat-like interface.
+  - Wide ecosystem support with npm packages and developer tools.
+
+- **SQLite (Database):**
+  - Ideal for a prototype/minimal product where scalability isn't a primary concern.
+  - Easy to set up, no server management required.
+
+- **spaCy (NLP):**
+  - Lightweight yet powerful library for named entity recognition and text similarity.
+  - Faster than alternatives like NLTK for real-time query processing.
+
